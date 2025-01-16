@@ -1,0 +1,9 @@
+{
+  "name": "vue3-amis",
+  "version": "1.0.0",
+  "description": "vue3版amis渲染器和编辑器",
+  "keywords": ["amis", "vue3-amis"],
+  "main": "vue3-amis.js",
+  "author": "zhangyu",
+  "license": "ISC"
+}
