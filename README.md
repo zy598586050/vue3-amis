@@ -24,6 +24,7 @@ pnpm add vue3-amis
 
 <script setup lang="ts">
 import { AmisEditer } from 'vue3-amis'
+import 'vue3-amis/dist/index.css'
 </script>
 
 // 解析器
@@ -33,6 +34,7 @@ import { AmisEditer } from 'vue3-amis'
 
 <script setup lang="ts">
 import { AmisRender } from 'vue3-amis'
+import 'vue3-amis/dist/index.css'
 const option = {
   "type": "page",
   "body": {
