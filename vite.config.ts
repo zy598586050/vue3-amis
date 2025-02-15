@@ -1,24 +1,32 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import path from 'path'
+import dts from 'vite-plugin-dts'
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue()],
-  build: {
-    outDir: 'site',
-    lib: {
-      entry: path.resolve(__dirname, './src/components/index.ts'),
-      name: 'Amis'
-    },
-    rollupOptions: {
-      external: ['vue'],
-      output: {
-        exports: 'named',
-        globals: {
-          vue: 'Vue'
-        }
-      }
+    plugins: [
+        vue(),
+        dts({
+            outDir: 'dist/types',
+            exclude: ['**/*.test.ts']
+        })
+    ],
+    build: {
+        lib: {
+            entry: 'src/index.ts',
+            name: 'vue3-amis',
+            formats: ['es', 'umd'],
+            fileName: (format) => `vue3-amis.${format}.js`
+        },
+        rollupOptions: {
+            external: ['vue'],
+            output: {
+                exports: 'named',
+                globals: {
+                    vue: 'Vue'
+                }
+            }
+        },
+        minify: 'terser',
+        cssCodeSplit: true
     }
-  }
 })
